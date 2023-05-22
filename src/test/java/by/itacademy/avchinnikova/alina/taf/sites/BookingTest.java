@@ -29,64 +29,62 @@ public class BookingTest {
     }
 
     @Test
-    public void testBookingWithEmptyEmail() throws InterruptedException {
-        Thread.sleep(1000);
-        WebElement submitButtonEnter = driver.findElement(By.xpath(page.buttonEnterXpath));
-        submitButtonEnter.click();
-        WebElement submitEmailButton = driver.findElement(By.xpath(page.buttonContinueXpath));
-        submitEmailButton.click();
+    public void emptyEmail() throws InterruptedException {
+        Thread.sleep(2000);
+        WebElement buttonContinue = driver.findElement(By.xpath(page.buttonContinueXpath));
+        buttonContinue.click();
     }
 
     @Test
-    public void testBookingWithIncorrectEmail() throws InterruptedException {
-        Thread.sleep(1000);
-        WebElement submitButtonEnter = driver.findElement(By.xpath(page.buttonEnterXpath));
-        submitButtonEnter.click();
+    public void incorrectEmail() throws InterruptedException {
+        Thread.sleep(2000);
+        WebElement buttonEnter = driver.findElement(By.xpath(page.buttonEnterXpath));
+        buttonEnter.click();
         WebElement inputEmail = driver.findElement(By.xpath(page.inputEmailXpath));
-        inputEmail.sendKeys("email");
-        WebElement submitEmailButton = driver.findElement(By.xpath(page.buttonContinueXpath));
-        submitEmailButton.click();
+        inputEmail.sendKeys("avchinnikova1012");
+        WebElement buttonContinue = driver.findElement(By.xpath(page.buttonContinueXpath));
+        buttonContinue.click();
     }
 
     @Test
-    public void testBookingWithCorrectEmail() throws InterruptedException {
-        Thread.sleep(1000);
-        WebElement submitButtonEnter = driver.findElement(By.xpath(page.buttonEnterXpath));
-        submitButtonEnter.click();
+    public void correctEmail() throws InterruptedException {
+        Thread.sleep(2000);
+        WebElement buttonEnter = driver.findElement(By.xpath(page.buttonEnterXpath));
+        buttonEnter.click();
         WebElement inputEmail = driver.findElement(By.xpath(page.inputEmailXpath));
-        inputEmail.sendKeys("test@gmail.com");
-        WebElement submitEmailButton = driver.findElement(By.xpath(page.buttonContinueXpath));
-        submitEmailButton.click();
+        inputEmail.sendKeys("avchinnikova1012@gmail.com");
+        WebElement buttonContinue = driver.findElement(By.xpath(page.buttonContinueXpath));
+        buttonContinue.click();
     }
 
     @Test
-    public void testBookingWithCorrectEmailAndEmptyPassword() throws InterruptedException {
-        Thread.sleep(1000);
-        WebElement submitButtonEnter = driver.findElement(By.xpath(page.buttonEnterXpath));
-        submitButtonEnter.click();
+    public void correctEmailAndEmptyPassword() throws InterruptedException {
+        Thread.sleep(2000);
+        WebElement buttonEnter = driver.findElement(By.xpath(page.buttonEnterXpath));
+        buttonEnter.click();
         WebElement inputEmail = driver.findElement(By.xpath(page.inputEmailXpath));
         inputEmail.sendKeys("test@gmail.com");
-        WebElement submitEmailButton = driver.findElement(By.xpath(page.buttonContinueXpath));
-        submitEmailButton.click();
-        Thread.sleep(1500);
-        WebElement submitPasswordButton = driver.findElement(By.xpath(page.buttonPasswordXpath));
-        submitPasswordButton.click();
+        WebElement buttonContinue = driver.findElement(By.xpath(page.buttonContinueXpath));
+        buttonContinue.click();
+        Thread.sleep(2000);
+        WebElement buttonLogin = driver.findElement(By.xpath(page.buttonLoginXpath));
+        buttonLogin.click();
     }
 
     @Test
-    public void testBookingWithCorrectEmailAndCorrectPassword() throws InterruptedException {
-        Thread.sleep(1000);
-        WebElement submitButtonEnter = driver.findElement(By.xpath(page.buttonEnterXpath));
-        submitButtonEnter.click();
+    public void correctEmailAndCorrectPassword() throws InterruptedException {
+        Thread.sleep(2000);
+        WebElement buttonEnter = driver.findElement(By.xpath(page.buttonEnterXpath));
+        buttonEnter.click();
         WebElement inputEmail = driver.findElement(By.xpath(page.inputEmailXpath));
-        inputEmail.sendKeys("test@gmail.com");
-        WebElement submitEmailButton = driver.findElement(By.xpath(page.buttonContinueXpath));
-        submitEmailButton.click();
+        inputEmail.sendKeys("avchinnikova1012@gmail.com");
+        WebElement buttonContinue = driver.findElement(By.xpath(page.buttonContinueXpath));
+        buttonContinue.click();
         Thread.sleep(1500);
         WebElement inputPassword = driver.findElement(By.xpath(page.inputPasswordXpath));
         inputPassword.sendKeys("qwerty1");
-        WebElement submitPasswordButton = driver.findElement(By.xpath(page.buttonPasswordXpath));
-        submitPasswordButton.click();
+        WebElement buttonLogin = driver.findElement(By.xpath(page.buttonLoginXpath));
+        buttonLogin.click();
     }
 
     @AfterEach

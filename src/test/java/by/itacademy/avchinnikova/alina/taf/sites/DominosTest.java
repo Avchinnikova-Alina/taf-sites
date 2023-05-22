@@ -26,8 +26,8 @@ public class DominosTest {
         inputEmail.sendKeys("avchinnikova1012");
         WebElement inputPassword = driver.findElement(By.xpath(page.inputPasswordXpath));
         inputPassword.sendKeys("qwerty1");
-        WebElement submitSignInButton = driver.findElement(By.xpath(page.buttonSignInXpath));
-        submitSignInButton.click();
+        WebElement buttonSignIn = driver.findElement(By.xpath(page.buttonSignInXpath));
+        buttonSignIn.click();
     }
 
     @Test
@@ -36,11 +36,12 @@ public class DominosTest {
         inputEmail.sendKeys("avchinnikova1012@gmail.com");
         WebElement inputPassword = driver.findElement(By.xpath(page.inputPasswordXpath));
         inputPassword.sendKeys("qwerty1");
-        WebElement submitSignInButton = driver.findElement(By.xpath(page.buttonSignInXpath));
-        submitSignInButton.click();
+        WebElement buttonSignIn = driver.findElement(By.xpath(page.buttonSignInXpath));
+        buttonSignIn.click();
     }
 
     @AfterEach
     public void tearsDown() {
         driver.quit();
-    }}
+    }
+}

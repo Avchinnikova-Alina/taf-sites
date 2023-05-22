@@ -13,64 +13,64 @@ public class TripadvisorTest {
     TripadvisorPage page = new TripadvisorPage();
 
     @BeforeEach
-    public void warmUp(){
+    public void warmUp() {
         driver.get("https://www.tripadvisor.com/");
     }
 
     @Test
     public void emptyEmailAndPassword() throws InterruptedException {
-        WebElement submitSignInButton = driver.findElement(By.xpath(page.buttonRegisterXpath));
-        submitSignInButton.click();
+        WebElement buttonRegister = driver.findElement(By.xpath(page.buttonRegisterXpath));
+        buttonRegister.click();
         Thread.sleep(2000);
         driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[title='regcontroller']")));
-        WebElement submitContinueWithEmailButton = driver.findElement(By.xpath(page.buttonContinueXpath));
-        submitContinueWithEmailButton.click();
-        WebElement submitFinalSignInButton = driver.findElement(By.xpath(page.buttonSignInXpath));
-        submitFinalSignInButton.click();
+        WebElement buttonContinue = driver.findElement(By.xpath(page.buttonContinueXpath));
+        buttonContinue.click();
+        WebElement buttonSignIn = driver.findElement(By.xpath(page.buttonSignInXpath));
+        buttonSignIn.click();
     }
 
     @Test
     public void incorrectEmail() throws InterruptedException {
-        WebElement submitSignInButton = driver.findElement(By.xpath(page.buttonRegisterXpath));
-        submitSignInButton.click();
+        WebElement buttonRegister = driver.findElement(By.xpath(page.buttonRegisterXpath));
+        buttonRegister.click();
         Thread.sleep(2000);
         driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[title='regcontroller']")));
-        WebElement submitContinueWithEmailButton = driver.findElement(By.xpath(page.buttonContinueXpath));
-        submitContinueWithEmailButton.click();
+        WebElement buttonContinue = driver.findElement(By.xpath(page.buttonContinueXpath));
+        buttonContinue.click();
         WebElement inputEmail = driver.findElement(By.xpath(page.inputEmailXpath));
         inputEmail.sendKeys("avchinnikova1012");
-        WebElement submitFinalSignInButton = driver.findElement(By.xpath(page.buttonSignInXpath));
-        submitFinalSignInButton.click();
+        WebElement buttonSignIn = driver.findElement(By.xpath(page.buttonSignInXpath));
+        buttonSignIn.click();
     }
 
     @Test
     public void correctEmailAndEmptyPassword() throws InterruptedException {
-        WebElement submitSignInButton = driver.findElement(By.xpath(page.buttonRegisterXpath));
-        submitSignInButton.click();
+        WebElement buttonRegister = driver.findElement(By.xpath(page.buttonRegisterXpath));
+        buttonRegister.click();
         Thread.sleep(2000);
         driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[title='regcontroller']")));
-        WebElement submitContinueWithEmailButton = driver.findElement(By.xpath(page.buttonContinueXpath));
-        submitContinueWithEmailButton.click();
+        WebElement buttonContinue = driver.findElement(By.xpath(page.buttonContinueXpath));
+        buttonContinue.click();
         WebElement inputEmail = driver.findElement(By.xpath(page.inputEmailXpath));
         inputEmail.sendKeys("avchinnikova1012@gmail.com");
-        WebElement submitFinalSignInButton = driver.findElement(By.xpath(page.buttonSignInXpath));
-        submitFinalSignInButton.click();
+        WebElement buttonSignIn = driver.findElement(By.xpath(page.buttonSignInXpath));
+        buttonSignIn.click();
     }
 
     @Test
     public void correctEmailAndPassword() throws InterruptedException {
-        WebElement submitSignInButton = driver.findElement(By.xpath(page.buttonRegisterXpath));
-        submitSignInButton.click();
+        WebElement buttonRegister = driver.findElement(By.xpath(page.buttonRegisterXpath));
+        buttonRegister.click();
         Thread.sleep(2000);
         driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[title='regcontroller']")));
-        WebElement submitContinueWithEmailButton = driver.findElement(By.xpath(page.buttonContinueXpath));
-        submitContinueWithEmailButton.click();
+        WebElement buttonContinue = driver.findElement(By.xpath(page.buttonContinueXpath));
+        buttonContinue.click();
         WebElement inputEmail = driver.findElement(By.xpath(page.inputEmailXpath));
         inputEmail.sendKeys("avchinnikova1012@gmail.com");
         WebElement inputPassword = driver.findElement(By.xpath(page.inputPasswordXpath));
         inputPassword.sendKeys("qwerty1");
-        WebElement submitFinalSignInButton = driver.findElement(By.xpath(page.buttonSignInXpath));
-        submitFinalSignInButton.click();
+        WebElement buttonFinalSignIn = driver.findElement(By.xpath(page.buttonSignInXpath));
+        buttonFinalSignIn.click();
     }
 
     @AfterEach
