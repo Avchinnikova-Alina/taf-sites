@@ -31,7 +31,7 @@ public class PizzatempoTest {
     }
 
     @Test
-    public void EmptyEmailAndSomePassword() {
+    public void emptyEmailAndSomePassword() {
         WebElement inputPassword = driver.findElement(By.xpath(page.inputPasswordXpath));
         inputPassword.sendKeys("qwerty1");
         WebElement buttonSignIn = driver.findElement(By.xpath(page.buttonSignInXpath));
