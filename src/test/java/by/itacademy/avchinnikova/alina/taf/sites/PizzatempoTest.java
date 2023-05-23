@@ -18,8 +18,8 @@ public class PizzatempoTest {
 
     @Test
     public void emptyEmailAndEmptyPassword() {
-        WebElement submitSignInButton = driver.findElement(By.xpath(page.buttonSignInXpath));
-        submitSignInButton.click();
+        WebElement buttonSignIn = driver.findElement(By.xpath(page.buttonSignInXpath));
+        buttonSignIn.click();
     }
 
     @Test
