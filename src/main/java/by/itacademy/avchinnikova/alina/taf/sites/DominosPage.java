@@ -36,7 +36,8 @@ public class DominosPage {
         inputEmail.sendKeys(Util.generateIncorrectEmail(15));
         inputEmail.sendKeys(Util.generateСorrectEmail(10));
     }
-    public void sendKeysInputPassword(String password){
+
+    public void sendKeysInputPassword(String password) {
         WebElement inputPassword = driver.findElement(By.xpath(inputPasswordXpath));
         inputPassword.sendKeys(Util.generatePassword(15));
     }
