@@ -6,28 +6,24 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DominosTest {
-    ChromeDriver driver = new ChromeDriver();
-    DominosPage page = new DominosPage(driver);
+    ChromeDriver driver;
+    DominosStep dominosStep;
 
     @BeforeEach
     public void warmUp() {
+        driver = new ChromeDriver();
+        dominosStep = new DominosStep(driver);
         driver.get("https://dominos.by/");
-        page.clickClosePopUp();
-        page.clickButtonEnter();
     }
 
     @Test
     public void incorrectEmailAndPassword() {
-        page.sendKeysInputEmail(Util.generateIncorrectEmail(15));
-        page.sendKeysInputPassword(Util.generatePassword(5));
-        page.clickButtonSignIn();
+        dominosStep.fillLoginFormAndSubmit(Util.generateIncorrectEmail(5),Util.generatePassword(5));
     }
 
     @Test
     public void correctEmailAndPassword() {
-        page.sendKeysInputEmail(Util.generateСorrectEmail(10));
-        page.sendKeysInputPassword(Util.generatePassword(5));
-        page.clickButtonSignIn();
+        dominosStep.fillLoginFormAndSubmit(Util.generateСorrectEmail(5),Util.generatePassword(5));
     }
 
     @AfterEach
