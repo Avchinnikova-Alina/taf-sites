@@ -18,12 +18,12 @@ public class DominosTest {
 
     @Test
     public void incorrectEmailAndPassword() {
-        dominosStep.fillLoginFormAndSubmit(Util.generateIncorrectEmail(5),Util.generatePassword(5));
+        dominosStep.fillLoginFormAndSubmit(Util.generateIncorrectEmail(5), Util.generatePassword(5));
     }
 
     @Test
     public void correctEmailAndPassword() {
-        dominosStep.fillLoginFormAndSubmit(Util.generateСorrectEmail(5),Util.generatePassword(5));
+        dominosStep.fillLoginFormAndSubmit(Util.generateСorrectEmail(5), Util.generatePassword(5));
     }
 
     @AfterEach

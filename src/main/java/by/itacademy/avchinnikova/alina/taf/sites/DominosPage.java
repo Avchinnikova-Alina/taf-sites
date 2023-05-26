@@ -35,6 +35,7 @@ public class DominosPage {
         WebElement inputPassword = driver.findElement(By.name(inputPasswordName));
         inputPassword.sendKeys(password);
     }
+
     public void clickButtonSignIn() {
         WebElement buttonSignIn = driver.findElement(By.xpath(buttonSignInXpath));
         buttonSignIn.click();

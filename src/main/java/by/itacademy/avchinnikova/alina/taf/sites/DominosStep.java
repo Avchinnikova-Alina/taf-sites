@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class DominosStep {
     DominosPage page;
 
-    public DominosStep(ChromeDriver driver){
+    public DominosStep(ChromeDriver driver) {
         page = new DominosPage(driver);
     }
 
