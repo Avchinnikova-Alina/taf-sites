@@ -6,42 +6,41 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class PizzatempoTest {
-    ChromeDriver driver = new ChromeDriver();
-    PizzatempoPage page = new PizzatempoPage(driver);
+    ChromeDriver driver;
+    PizzatempoStep pizzatempoStep;
 
     @BeforeEach
     public void warmUp() {
+        driver = new ChromeDriver();
+        pizzatempoStep = new PizzatempoStep(driver);
+        driver.manage().window().maximize();
         driver.get("https://www.pizzatempo.by/");
     }
 
     @Test
     public void emptyEmailAndEmptyPassword() {
-        page.clickButtonSignIn();
+        pizzatempoStep.fillLoginFormAndSubmit("","");
     }
 
     @Test
     public void incorrectEmail() {
-        page.sendKeysInputEmail(Util.generateIncorrectEmail(5));
-        page.clickButtonSignIn();
+        pizzatempoStep.fillLoginFormAndSubmit(Util.generateIncorrectEmail(5), "");
+
     }
 
     @Test
     public void emptyEmailAndSomePassword() {
-        page.sendKeysInputPassword(Util.generatePassword(5));
-        page.clickButtonSignIn();
+       pizzatempoStep.fillLoginFormAndSubmit("", Util.generatePassword(5));
     }
 
     @Test
     public void correctEmailAndEmptyPassword() {
-        page.sendKeysInputEmail(Util.generateСorrectEmail(5));
-        page.clickButtonSignIn();
+        pizzatempoStep.fillLoginFormAndSubmit(Util.generateСorrectEmail(5),"");
     }
 
     @Test
     public void correctEmailAndPassword() {
-        page.sendKeysInputEmail(Util.generateСorrectEmail(5));
-        page.sendKeysInputPassword(Util.generatePassword(5));
-        page.clickButtonSignIn();
+        pizzatempoStep.fillLoginFormAndSubmit(Util.generateСorrectEmail(5),Util.generatePassword(5));
     }
 
     @AfterEach
@@ -49,3 +48,4 @@ public class PizzatempoTest {
         driver.quit();
     }
 }
+
