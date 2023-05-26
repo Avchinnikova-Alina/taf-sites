@@ -19,7 +19,7 @@ public class PizzatempoTest {
 
     @Test
     public void emptyEmailAndEmptyPassword() {
-        pizzatempoStep.fillLoginFormAndSubmit("","");
+        pizzatempoStep.fillLoginFormAndSubmit("", "");
     }
 
     @Test
@@ -30,17 +30,17 @@ public class PizzatempoTest {
 
     @Test
     public void emptyEmailAndSomePassword() {
-       pizzatempoStep.fillLoginFormAndSubmit("", Util.generatePassword(5));
+        pizzatempoStep.fillLoginFormAndSubmit("", Util.generatePassword(5));
     }
 
     @Test
     public void correctEmailAndEmptyPassword() {
-        pizzatempoStep.fillLoginFormAndSubmit(Util.generateСorrectEmail(5),"");
+        pizzatempoStep.fillLoginFormAndSubmit(Util.generateСorrectEmail(5), "");
     }
 
     @Test
     public void correctEmailAndPassword() {
-        pizzatempoStep.fillLoginFormAndSubmit(Util.generateСorrectEmail(5),Util.generatePassword(5));
+        pizzatempoStep.fillLoginFormAndSubmit(Util.generateСorrectEmail(5), Util.generatePassword(5));
     }
 
     @AfterEach
