@@ -1,5 +1,6 @@
 package by.itacademy.avchinnikova.alina.taf.sites;
 
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,23 +8,42 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DominosTest {
     ChromeDriver driver;
-    DominosStep dominosStep;
+    PizzatempoStep pizzatempoStep;
+    Faker faker;
 
     @BeforeEach
     public void warmUp() {
         driver = new ChromeDriver();
-        dominosStep = new DominosStep(driver);
-        driver.get("https://dominos.by/");
+        pizzatempoStep = new PizzatempoStep(driver);
+        faker = new Faker();
+        driver.manage().window().maximize();
+        driver.get("https://www.pizzatempo.by/");
     }
 
     @Test
-    public void incorrectEmailAndPassword() {
-        dominosStep.fillLoginFormAndSubmit(Util.generateIncorrectEmail(5), Util.generatePassword(5));
+    public void emptyEmailAndEmptyPassword() {
+        pizzatempoStep.fillLoginFormAndSubmit("", "");
+    }
+
+    @Test
+    public void incorrectEmail() {
+        pizzatempoStep.fillLoginFormAndSubmit(faker.internet().emailAddress(), "");
+
+    }
+
+    @Test
+    public void emptyEmailAndSomePassword() {
+        pizzatempoStep.fillLoginFormAndSubmit("", faker.internet().password());
+    }
+
+    @Test
+    public void correctEmailAndEmptyPassword() {
+        pizzatempoStep.fillLoginFormAndSubmit(faker.internet().emailAddress(), "");
     }
 
     @Test
     public void correctEmailAndPassword() {
-        dominosStep.fillLoginFormAndSubmit(Util.generateСorrectEmail(5), Util.generatePassword(5));
+        pizzatempoStep.fillLoginFormAndSubmit(faker.internet().emailAddress(), faker.internet().password());
     }
 
     @AfterEach
