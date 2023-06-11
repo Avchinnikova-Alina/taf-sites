@@ -1,4 +1,4 @@
-package by.itacademy.avchinnikova.alina.taf.sites;
+package by.itacademy.avchinnikova.alina.taf.sites.pages;
 
 public class TripadvisorPage {
     String buttonRegisterXpath = "//*[@id='lithium-root']/header/div/nav/div/div[2]/a[3]";

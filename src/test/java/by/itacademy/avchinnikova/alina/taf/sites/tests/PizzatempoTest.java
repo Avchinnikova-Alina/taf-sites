@@ -33,31 +33,39 @@ public class PizzatempoTest {
 
     @Test
     public void emptyEmailAndEmptyPassword() {
-        pizzatempoStep.fillLoginFormAndSubmit("", "");
+        pizzatempoPage.clickButtonSignIn();
         Assertions.assertEquals("Заполните форму", pizzatempoPage.getAlert());
     }
-
     @Test
     public void incorrectEmail() {
-        pizzatempoStep.fillLoginFormAndSubmit(Util.generateIncorrectEmail(5), "");
+        pizzatempoPage.
+                sendKeysInputEmail(Util.generateIncorrectEmail(5)).
+                clickButtonSignIn();
         Assertions.assertEquals("Заполните форму", pizzatempoPage.getAlert());
     }
 
     @Test
     public void emptyEmailAndSomePassword() {
-        pizzatempoStep.fillLoginFormAndSubmit("", faker.internet().password());
+        pizzatempoPage.
+                sendKeysInputPassword(faker.internet().password()).
+                clickButtonSignIn();
         Assertions.assertEquals("Заполните форму", pizzatempoPage.getAlert());
     }
 
     @Test
     public void correctEmailAndEmptyPassword() {
-        pizzatempoStep.fillLoginFormAndSubmit(faker.internet().emailAddress(), "");
+        pizzatempoPage.
+                sendKeysInputEmail(faker.internet().emailAddress()).
+                clickButtonSignIn();
         Assertions.assertEquals("Заполните форму", pizzatempoPage.getAlert());
     }
 
     @Test
     public void correctEmailAndPassword() {
-        pizzatempoStep.fillLoginFormAndSubmit(faker.internet().emailAddress(), faker.internet().password());
+        pizzatempoPage.
+                sendKeysInputEmail(faker.internet().emailAddress()).
+                sendKeysInputPassword(faker.internet().password()).
+                clickButtonSignIn();
         Assertions.assertEquals("Неверно указано имя пользователя или пароль.\n" +
                 "Ok", pizzatempoPage.getError());
     }
