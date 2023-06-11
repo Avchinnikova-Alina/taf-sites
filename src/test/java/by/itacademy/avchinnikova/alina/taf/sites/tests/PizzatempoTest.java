@@ -1,7 +1,6 @@
 package by.itacademy.avchinnikova.alina.taf.sites.tests;
 
 import by.itacademy.avchinnikova.alina.taf.sites.pages.PizzatempoPage;
-import by.itacademy.avchinnikova.alina.taf.sites.steps.PizzatempoStep;
 import by.itacademy.avchinnikova.alina.taf.sites.utils.Util;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.AfterEach;
@@ -13,7 +12,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class PizzatempoTest {
     ChromeDriver driver;
-    PizzatempoStep pizzatempoStep;
     PizzatempoPage pizzatempoPage;
     Faker faker;
     Util util;
@@ -25,7 +23,6 @@ public class PizzatempoTest {
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         driver.get("https://www.pizzatempo.by/");
-        pizzatempoStep = new PizzatempoStep(driver);
         pizzatempoPage = new PizzatempoPage(driver);
         faker = new Faker();
         util = new Util();
@@ -36,6 +33,7 @@ public class PizzatempoTest {
         pizzatempoPage.clickButtonSignIn();
         Assertions.assertEquals("Заполните форму", pizzatempoPage.getAlert());
     }
+
     @Test
     public void incorrectEmail() {
         pizzatempoPage.
